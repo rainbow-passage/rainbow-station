@@ -10,4 +10,4 @@ Rainbow Station CRM is a web application. It is currently in development, and is
 
 ## How do I contribute to Rainbow Station CRM?
 
-Rainbow Station CRM is an open source project. We welcome contributions from anyone. If you would like to contribute, please read our [Contributing Guidelines](CONTRIBUTING.md).
+Rainbow Station CRM is an open source project. We welcome contributions from anyone. If you would like to contribute, please read our [Contributing Guidelines](Contributing.md).
