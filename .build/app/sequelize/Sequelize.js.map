@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/sequelize/Sequelize.ts"],
+  "sourcesContent": ["import { Sequelize } from 'sequelize-typescript';\n\nexport const sequelize = new Sequelize({\n    dialect: 'mysql',\n    host: 'localhost',\n    port: 3306,\n    username: 'rainpass_test',\n    password: 'rainpass_test',\n});"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,kCAA0B;AAEnB,MAAM,YAAY,IAAI,sCAAU;AAAA,EACnC,SAAS;AAAA,EACT,MAAM;AAAA,EACN,MAAM;AAAA,EACN,UAAU;AAAA,EACV,UAAU;AACd,CAAC;",
+  "names": []
+}

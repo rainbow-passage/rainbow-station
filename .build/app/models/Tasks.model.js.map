@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/models/Tasks.model.ts"],
+  "sourcesContent": ["import { Model, Column, Table, DataType } from 'sequelize-typescript';\nimport type { TaskAttributes, TaskCreationAttributes } from './Interfaces';\n\n@Table({\n    timestamps: true,\n    tableName: 'Tasks'\n})\nexport class Task extends Model<TaskAttributes, TaskCreationAttributes> implements TaskAttributes {\n    @Column({\n        type: DataType.INTEGER,\n        autoIncrement: true,\n        primaryKey: true,\n        allowNull: false\n    })\n    id!: number;\n\n    @Column({\n        type: DataType.STRING,\n        allowNull: false\n    })\n    taskName!: string;\n    taskStatus!: string;\n\n    @Column({\n        type: DataType.STRING,\n        allowNull: true\n    })\n    taskNotes?: string;\n    taskCoordinator?: string;\n    taskCoordinatorOther?: string;\n    taskMembers?: string;\n    taskFrequency?: string;\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,kCAA+C;AAOxC,IAAM,OAAN,cAAmB,kCAAwE;AAyBlG;AAlBI;AAAA,MANC,oCAAO;AAAA,IACJ,MAAM,qCAAS;AAAA,IACf,eAAe;AAAA,IACf,YAAY;AAAA,IACZ,WAAW;AAAA,EACf,CAAC;AAAA,GANQ,KAOT;AAMA;AAAA,MAJC,oCAAO;AAAA,IACJ,MAAM,qCAAS;AAAA,IACf,WAAW;AAAA,EACf,CAAC;AAAA,GAZQ,KAaT;AAOA;AAAA,MAJC,oCAAO;AAAA,IACJ,MAAM,qCAAS;AAAA,IACf,WAAW;AAAA,EACf,CAAC;AAAA,GAnBQ,KAoBT;AApBS,OAAN;AAAA,MAJN,mCAAM;AAAA,IACH,YAAY;AAAA,IACZ,WAAW;AAAA,EACf,CAAC;AAAA,GACY;",
+  "names": []
+}

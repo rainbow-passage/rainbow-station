@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../remix.config.js"],
+  "sourcesContent": ["/** @type {import('@remix-run/dev').AppConfig} */\nmodule.exports = {\n  ignoredRouteFiles: [\"**/.*\"],\n  // appDirectory: \"app\",\n  // assetsBuildDirectory: \"public/build\",\n  // serverBuildPath: \"build/index.js\",\n  // publicPath: \"/build/\",\n  serverModuleFormat: \"cjs\",\n  future: {\n    v2_dev: true,\n    v2_errorBoundary: true,\n    v2_headers: true,\n    v2_meta: true,\n    v2_normalizeFormMethod: true,\n    v2_routeConvention: true,\n  },\n};\n"],
+  "mappings": ";AACA,OAAO,UAAU;AAAA,EACf,mBAAmB,CAAC,OAAO;AAAA,EAK3B,oBAAoB;AAAA,EACpB,QAAQ;AAAA,IACN,QAAQ;AAAA,IACR,kBAAkB;AAAA,IAClB,YAAY;AAAA,IACZ,SAAS;AAAA,IACT,wBAAwB;AAAA,IACxB,oBAAoB;AAAA,EACtB;AACF;",
+  "names": []
+}

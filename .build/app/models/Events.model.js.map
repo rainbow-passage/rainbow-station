@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/models/Events.model.ts"],
+  "sourcesContent": ["import { Model, Column, Table, DataType } from 'sequelize-typescript';\nimport type { EventAttributes, EventCreationAttributes } from './Interfaces';\n\n@Table({\n    timestamps: true,\n    tableName: 'Events'\n})\nexport class Event extends Model<EventAttributes, EventCreationAttributes> implements EventAttributes {\n    @Column({\n        type: DataType.INTEGER,\n        autoIncrement: true,\n        primaryKey: true,\n        allowNull: false\n    })\n    id!: number;\n\n    @Column({\n        type: DataType.STRING,\n        allowNull: false\n    })\n    eventName!: string;\n    eventStatus!: string;\n    eventLocation!: string;\n\n    @Column({\n        type: DataType.STRING,\n        allowNull: true\n    })\n    eventNotes?: string;\n    eventCoordinator?: string;\n    eventCoordinatorOther?: string;\n    eventMembers?: string;\n    eventFrequency?: string;\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,kCAA+C;AAOxC,IAAM,QAAN,cAAoB,kCAA2E;AA0BtG;AAnBI;AAAA,MANC,oCAAO;AAAA,IACJ,MAAM,qCAAS;AAAA,IACf,eAAe;AAAA,IACf,YAAY;AAAA,IACZ,WAAW;AAAA,EACf,CAAC;AAAA,GANQ,MAOT;AAMA;AAAA,MAJC,oCAAO;AAAA,IACJ,MAAM,qCAAS;AAAA,IACf,WAAW;AAAA,EACf,CAAC;AAAA,GAZQ,MAaT;AAQA;AAAA,MAJC,oCAAO;AAAA,IACJ,MAAM,qCAAS;AAAA,IACf,WAAW;AAAA,EACf,CAAC;AAAA,GApBQ,MAqBT;AArBS,QAAN;AAAA,MAJN,mCAAM;AAAA,IACH,YAAY;AAAA,IACZ,WAAW;AAAA,EACf,CAAC;AAAA,GACY;",
+  "names": []
+}

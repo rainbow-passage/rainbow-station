@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../.eslintrc.js"],
+  "sourcesContent": ["/** @type {import('eslint').Linter.Config} */\nmodule.exports = {\n  extends: [\"@remix-run/eslint-config\", \"@remix-run/eslint-config/node\"],\n};\n"],
+  "mappings": ";AACA,OAAO,UAAU;AAAA,EACf,SAAS,CAAC,4BAA4B,+BAA+B;AACvE;",
+  "names": []
+}
