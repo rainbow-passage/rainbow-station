@@ -2,7 +2,7 @@
 
 ## What is Rainbow Station CRM?
 
-Rainbow Station CRM is a Customer and Client Relationship Management System. It is a web application that allows users to manage their customers, clients, employees, and donors. Not only does it manage your resources, it also includes management for Events, Tasks, and Projects. Rainbow Station CRM will be a one-stop-shop for all your business needs.
+Rainbow Station CRM is a Customer and Client Relationship Management System. It is a web application that allows users to manage their customers, clients, employees, and donors. Not only does it manage your resources, it also includes management for Events, Tasks, and Projects. Rainbow Station CRM will be a one-stop-shop for all your non-profit business needs.
 
 ## How do I use Rainbow Station CRM?
 
