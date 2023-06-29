@@ -62,3 +62,10 @@ If you encounter any issues or bugs while using our project, please report them 
 ## Contact Us
 
 If you have any questions or concerns about contributing to our project, please contact us at [amy@rainbowpassage.org].
+
+## Acknowledgements
+
+We would like to thank the following individuals and organizations for their contributions to the Customers and Clients Relationship Management Suite:
+LiraBird
+SparrowCalibur
+DontUwUmyOwO
