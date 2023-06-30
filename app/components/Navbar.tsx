@@ -5,9 +5,11 @@ import * as React from 'react';
 const Navbar: React.FC = () => {
   // Your code here
   return (
-    <nav className="flex items-center justify-between p-4 bg-black shadow">
-      {/* Navbar contents */}
-    </nav>
+    <div className="h-12.5 bg-shad">
+      <div className="flex items-center justify-between h-12 bg-backg shadow">
+        {/* Navbar contents */}
+      </div>
+    </div>
   );
 };
 

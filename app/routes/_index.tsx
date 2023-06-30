@@ -1,7 +1,9 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import { motion } from 'framer-motion';
+import { Reorder } from 'framer-motion';
 import Sidebar from '~/components/Sidebar';
 import Navbar from '~/components/Navbar';
+import Preview from "~/components/Preview";
+import React from "react";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -11,19 +13,23 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
+  const [items, setItems] = React.useState(['1', '2', '3', '4', '5', '6', '7', '8', '9']);
+
   return (
-    <div className="flex bg-black w-full h-full">
+    <div className="flex bg-black w-full min-h-full h-screen">
       <Sidebar />
       <div className="flex-1">
         <Navbar />
-        <motion.div
-          className="flex flex-wrap p-4"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+        <Reorder.Group
+          as="div"
+          className="flex space-y-4 space-x-4 flex-wrap"
+          onReorder={setItems}
+          values={items}
         >
-          {/* Your other components */}
-        </motion.div>
+          {items.map((item) => (
+            <Preview key={item} content={item} />
+          ))}
+        </Reorder.Group>
       </div>
     </div>
   );
