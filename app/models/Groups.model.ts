@@ -1,4 +1,4 @@
-import { Model, Column, Table, DataType } from 'sequelize-typescript';
+import { Model, Column, Table, DataType, Index } from 'sequelize-typescript';
 import type { GroupAttributes, GroupCreationAttributes } from './Interfaces';
 
 @Table({
@@ -6,6 +6,7 @@ import type { GroupAttributes, GroupCreationAttributes } from './Interfaces';
   tableName: 'Groups'
 })
 export class Group extends Model<GroupAttributes, GroupCreationAttributes> implements GroupAttributes {
+  @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -25,8 +26,23 @@ export class Group extends Model<GroupAttributes, GroupCreationAttributes> imple
     allowNull: true,
   })
   groupNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
   groupCoordinator?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
   groupCoordinatorOther?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
   groupMembers?: string;
 
 }

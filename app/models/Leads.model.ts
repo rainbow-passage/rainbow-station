@@ -1,4 +1,4 @@
-import { Model, Column, Table, DataType } from 'sequelize-typescript';
+import { Model, Column, Table, DataType, Index } from 'sequelize-typescript';
 import type { LeadAttributes, LeadCreationAttributes } from './Interfaces';
 
 @Table({
@@ -6,6 +6,7 @@ import type { LeadAttributes, LeadCreationAttributes } from './Interfaces';
   tableName: 'Leads'
 })
 export class Lead extends Model<LeadAttributes, LeadCreationAttributes> implements LeadAttributes {
+  @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -26,9 +27,29 @@ export class Lead extends Model<LeadAttributes, LeadCreationAttributes> implemen
     allowNull: true
   })
   leadDetails?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   leadNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   leadCoordinator?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   leadCoordinatorOther?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   leadMembers?: string;
 }
 

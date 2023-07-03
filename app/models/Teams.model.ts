@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, Index } from 'sequelize-typescript';
 import { TeamAttributes, TeamCreationAttributes } from './Interfaces';
 
 @Table({
@@ -7,6 +7,7 @@ import { TeamAttributes, TeamCreationAttributes } from './Interfaces';
   timestamps: true,
 })
 export class Team extends Model<TeamAttributes, TeamCreationAttributes> {
+  @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -27,7 +28,22 @@ export class Team extends Model<TeamAttributes, TeamCreationAttributes> {
     allowNull: true,
   })
   teamNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   teamCoordinator?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   teamCoordinatorOther?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   teamMembers?: string;
 }

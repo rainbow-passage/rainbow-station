@@ -1,4 +1,4 @@
-import { Model, Column, Table, DataType } from 'sequelize-typescript';
+import { Model, Column, Table, DataType, Index } from 'sequelize-typescript';
 import type { PropertyAttributes, PropertyCreationAttributes } from './Interfaces';
 
 @Table({
@@ -6,6 +6,7 @@ import type { PropertyAttributes, PropertyCreationAttributes } from './Interface
   tableName: 'Properties'
 })
 export class Property extends Model<PropertyAttributes, PropertyCreationAttributes> implements PropertyAttributes {
+  @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -32,8 +33,23 @@ export class Property extends Model<PropertyAttributes, PropertyCreationAttribut
     allowNull: false
   })
   propertyCity!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
   propertyState!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
   propertyZip!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
   propertyCountry!: string;
 
   @Column({
@@ -41,7 +57,17 @@ export class Property extends Model<PropertyAttributes, PropertyCreationAttribut
     allowNull: true
   })
   propertyNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   propertyCoordinator?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   propertyCoordinatorOther?: string;
 }
 

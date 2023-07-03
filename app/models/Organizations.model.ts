@@ -1,4 +1,4 @@
-import { Model, Column, Table, DataType } from 'sequelize-typescript';
+import { Model, Column, Table, DataType, Index } from 'sequelize-typescript';
 import type { OrganizationAttributes, OrganizationCreationAttributes } from './Interfaces';
 
 @Table({
@@ -6,6 +6,7 @@ import type { OrganizationAttributes, OrganizationCreationAttributes } from './I
   tableName: 'Organizations'
 })
 export class Organization extends Model<OrganizationAttributes, OrganizationCreationAttributes> implements OrganizationAttributes {
+  @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
@@ -26,9 +27,29 @@ export class Organization extends Model<OrganizationAttributes, OrganizationCrea
     allowNull: true
   })
   organizationTypeOther?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   organizationNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   organizationCoordinator?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   organizationCoordinatorOther?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   organizationMembers?: string;
 }
 
