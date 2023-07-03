@@ -25,6 +25,11 @@ export class Employee extends Model<EmployeeAttributes, EmployeeCreationAttribut
         allowNull: false
     })
     pronouns!: string;
+    
+    @Column({
+        type: DataType.STRING,
+        allowNull: false
+    })
     honorific!: string;
     firstName!: string;
     lastName!: string;
