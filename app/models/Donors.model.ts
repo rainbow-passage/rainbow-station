@@ -26,203 +26,203 @@ export class Donor extends Model<DonorAttributes, DonorCreationAttributes> imple
     allowNull: false
   })
   pronouns!: string;
-  
-  
+
+
   @Column({
-      type: DataType.STRING,
-      allowNull: false
+    type: DataType.STRING,
+    allowNull: false
   })
   honorific!: string;
-  
+
   @Column({
-      type: DataType.STRING,
-      allowNull: false
-  }) 
+    type: DataType.STRING,
+    allowNull: false
+  })
   firstName!: string;
 
   @Column({
-      type: DataType.STRING,
-      allowNull: false
+    type: DataType.STRING,
+    allowNull: false
   })
-  Name!: string;
+  lastName!: string;
 
   @Column({
-      type: DataType.STRING,
-      allowNull: false
+    type: DataType.STRING,
+    allowNull: false
   })
   email!: string;
-  
+
   @Column({
-      type: DataType.STRING,
-      allowNull: false
+    type: DataType.STRING,
+    allowNull: false
   })
-  country!:  string;
- 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  country!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   middleName?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   phone?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   address?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   address2?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   city?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   state?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   zip?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   birthDate?: Date;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   website?: string;
-  
+
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   facebook?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   twitter?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   instagram?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
-  linkedin?: string ;
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  linkedin?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
-  youtube?: string;  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  youtube?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   tiktok?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
-  github?: string;  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  github?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   discord?: string;
 
   @IsUrl
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
-  slack?: string;  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  slack?: string;
 
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
-  })  
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
   donationFrequency?: string;
 
-  
-  @Column ({
-    type : DataType.STRING,
-     allowNull: true
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
   })
   donationFrequencyOther?: string;
 
-  
-      @Column ({
-        type : DataType.STRING,
-         allowNull: true
-      })
-      donationAmount?: string;
-  
-      @Column ({
-    type : DataType.STRING,
-     allowNull: true
-      })
-      donationAmountOther?: string;
 
-      @Column ({
-    type : DataType.STRING,
-     allowNull: true
-      })
-      donationMethod?: string;
-  
-      @Column ({
-        type : DataType.STRING,
-         allowNull: true
-      })
-      donationMethodOther?: string;
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  donationAmount?: string;
 
-      @Column ({
-        type : DataType.STRING,
-         allowNull: true
-      })
-      donationNotes?: string;
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  donationAmountOther?: string;
 
-      @Column ({
-        type : DataType.STRING,
-         allowNull: true
-      })
-      donorLiaison?: string;
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  donationMethod?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  donationMethodOther?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  donationNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true
+  })
+  donorLiaison?: string;
 }
