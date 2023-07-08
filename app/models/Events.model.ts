@@ -25,6 +25,12 @@ export class Event extends Model<EventAttributes, EventCreationAttributes> imple
     type: DataType.STRING,
     allowNull: false
   })
+  eventDate?: Date;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false
+  })
   eventStatus!: string;
 
   @Column({

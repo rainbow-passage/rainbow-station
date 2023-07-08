@@ -4,8 +4,8 @@ import type { PersonAttributes, PersonCreationAttributes, ResourceAttributes, Re
 
 // write interfaces to extend the interfaces person, social, and resource interfaces
 
-interface EmployeeAttributes extends PersonAttributes, SocialAttributes, ResourceAttributes { }
-interface EmployeeCreationAttributes extends PersonCreationAttributes, SocialCreationAttributes, ResourceCreationAttributes { }
+export interface EmployeeAttributes extends PersonAttributes, SocialAttributes, ResourceAttributes { }
+export interface EmployeeCreationAttributes extends PersonCreationAttributes, SocialCreationAttributes, ResourceCreationAttributes { }
 
 @Table({
   timestamps: true,
