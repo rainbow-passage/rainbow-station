@@ -1,4 +1,4 @@
-import { Model, Table, Column, DataType, Index, IsUrl } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, Index, IsUrl, IsUUID } from 'sequelize-typescript';
 import type { PersonAttributes, PersonCreationAttributes, ResourceAttributes, ResourceCreationAttributes, SocialAttributes, SocialCreationAttributes } from './Interfaces';
 
 

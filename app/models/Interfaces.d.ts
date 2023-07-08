@@ -21,6 +21,51 @@ export interface PersonAttributes {
 
 export interface PersonCreationAttributes extends Optional<PersonAttributes, "middleName" | "phone" | "address" | "address2" | "city" | "state" | "zip" | "birthDate"> { }
 
+export interface UserAttributes {
+  id: number;
+  username: string;
+  password: string;
+  email: string;
+  profilePicture?: string;
+  pronouns?: string;
+  name?: string;
+  bio?: string;
+  bday?: Date;
+}
+
+export interface UserCreationAttributes extends Optional<UserAttributes, "profilePicture" | "pronouns" | "name"> { }
+
+export interface UserMemberAttributes {
+  id: number;
+  userId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  directorId?: number;
+}
+
+export interface UserMemberCreationAttributes extends Optional<UserMemberAttributes, "volunteerId" | "employeeId" | "directorId"> { }
+
+export interface RoleAttributes {
+  id: number;
+  name: string;
+  description?: string;
+}
+
+export interface RoleCreationAttributes extends Optional<RoleAttributes, "description"> { }
+
+export interface RoleMemberAttributes {
+  id: number;
+  roleId: number;
+  userId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  directorId?: number;
+}
+
+export interface RoleMemberCreationAttributes extends Optional<RoleMemberAttributes, "volunteerId" | "employeeId" | "directorId"> { }
+
+
+
 export interface SocialAttributes {
   website?: string;
   facebook?: string;
@@ -186,8 +231,75 @@ export interface LeadAttributes {
   leadStatus: string;
   leadCoordinator?: string;
   leadCoordinatorOther?: string;
-  leadMembers?: string;
 }
 
-export interface LeadCreationAttributes extends Optional<LeadAttributes, "leadDetails" | "leadNotes" | "leadCoordinator" | "leadCoordinatorOther" | "leadMembers"> { }
+export interface LeadCreationAttributes extends Optional<LeadAttributes, "leadDetails" | "leadNotes" | "leadCoordinator" | "leadCoordinatorOther"> { }
 
+export interface TeamMemberAttributes {
+  teamId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+}
+
+export interface TeamMemberCreationAttributes extends Optional<TeamMemberAttributes, "volunteerId" | "employeeId" | "clientId" > { }
+
+export interface GroupMemberAttributes {
+  groupId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+  donorId?: number;
+}
+
+export interface GroupMemberCreationAttributes extends Optional<GroupMemberAttributes, "volunteerId" | "employeeId" | "clientId" | "donorId"> { }
+
+export interface OrganizationMemberAttributes {
+  organizationId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+  donorId?: number;
+}
+
+export interface OrganizationMemberCreationAttributes extends Optional<OrganizationMemberAttributes, "volunteerId" | "employeeId" | "clientId" | "donorId"> { }
+
+export interface PropertyMemberAttributes {
+  propertyId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+}
+
+export interface PropertyMemberCreationAttributes extends Optional<PropertyMemberAttributes, "volunteerId" | "employeeId" | "clientId"> { }
+
+export interface TaskMemberAttributes {
+  taskId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+  donorId?: number;
+}
+
+export interface TaskMemberCreationAttributes extends Optional<TaskMemberAttributes, "volunteerId" | "employeeId" | "clientId" | "donorId"> { }
+
+export interface SchedulerMemberAttributes {
+  schedulerId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+  donorId?: number;
+}
+
+export interface SchedulerMemberCreationAttributes extends Optional<SchedulerMemberAttributes, "volunteerId" | "employeeId" | "clientId" | "donorId"> { }
+
+export interface EventMemberAttributes {
+  eventId: number;
+  volunteerId?: number;
+  employeeId?: number;
+  clientId?: number;
+  donorId?: number;
+  propertyId?: number;
+}
+
+export interface EventMemberCreationAttributes extends Optional<EventMemberAttributes, "volunteerId" | "employeeId" | "clientId" | "donorId" | "propertyId"> { }

@@ -1,11 +1,11 @@
-import { Model, Table, Column, DataType, Index, IsUrl } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, Index, IsUrl, IsUUID } from 'sequelize-typescript';
 import type { PersonAttributes, PersonCreationAttributes, SocialAttributes, SocialCreationAttributes, DonationAttributes, DonationCreationAttributes } from './Interfaces';
 
 
 // write interfaces to extend the interfaces person, social, and donor interfaces
 
-interface DonorAttributes extends PersonAttributes, SocialAttributes, DonationAttributes { }
-interface DonorCreationAttributes extends PersonCreationAttributes, SocialCreationAttributes, DonationCreationAttributes { }
+export interface DonorAttributes extends PersonAttributes, SocialAttributes, DonationAttributes { }
+export interface DonorCreationAttributes extends PersonCreationAttributes, SocialCreationAttributes, DonationCreationAttributes { }
 
 @Table({
   timestamps: true,

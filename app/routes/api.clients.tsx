@@ -1,8 +1,8 @@
 // api/clients.js
 
 import { json, LoaderFunction } from 'remix';
-import { Client } from '../models/Clients.model';
-import { ClientCreationAttributes } from '~/models/Clients.model';
+import { Client, ClientCreationAttributes } from '../models/Clients.model';
+import { ClientAttributes } from '~/models/Clients.model';
 
 export const routes = {
   '/api/clients': async () => {
@@ -21,10 +21,10 @@ export const routes = {
   },
   '/api/createClient': async (request: any) => {
     const body = new URLSearchParams(await request.text());
-    const client: ClientCreationAttributes = await Client.create(Object.fromEntries(body) as ClientCreationAttributes);
+    const client: Client = await Client.create(Object.fromEntries(body));
     return json(client, { status: 201 });
   },
-  '/api/updateClient/:id': async (request) => {
+  '/api/updateClient/:id': async (request: any) => {
     const { id } = request.params;
     const client = await Client.findByPk(id);
 
@@ -33,10 +33,10 @@ export const routes = {
     }
 
     const body = new URLSearchParams(await request.text());
-    await client.update([...body]);
+    await client.update(body);
     return json(client);
   },
-  '/api/deleteClient/:id': async (request) => {
+  '/api/deleteClient/:id': async (request: any) => {
     const { id } = request.params;
     const client = await Client.findByPk(id);
 

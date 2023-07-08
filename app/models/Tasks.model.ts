@@ -1,4 +1,4 @@
-import { Model, Column, Table, DataType, Index } from 'sequelize-typescript';
+import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
 import type { TaskAttributes, TaskCreationAttributes } from './Interfaces';
 
 @Table({

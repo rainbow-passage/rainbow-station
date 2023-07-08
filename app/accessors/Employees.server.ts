@@ -1,4 +1,4 @@
-import { Employee } from "~/models/Employee.model";}
+import { Employee } from "~/models/Employees.model";}
 
 export const getEmployees = async (params: any): Promise<Employee[]> => {
   return await Employee.findAll(params);

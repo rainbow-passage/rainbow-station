@@ -1,0 +1,38 @@
+import { DonorAttributes, DonorCreationAttributes } from '~/models/Donors.model';
+
+export const donorSeed: DonorAttributes & DonorCreationAttributes =
+{
+  id: 1,
+  pronouns: 'they/them',
+  honorific: 'Mx.',
+  firstName: 'Donar',
+  middleName: 'Ray',
+  lastName: 'Stevens',
+  email: 'tugrp@example.com',
+  address: '123 Fake Street',
+  address2: 'Apt. 456',
+  city: 'Chicago',
+  state: 'IL',
+  zip: '60606',
+  country: 'United States',
+  phone: '(555) 555-5555',
+  birthDate: new Date(2002, 1, 1),
+  website: 'https://donar.com',
+  facebook: 'https://facebook.com/donar',
+  twitter: 'https://twitter.com/donar',
+  instagram: 'https://instagram.com/donar',
+  linkedin: 'https://linkedin.com/donar',
+  youtube: 'https://youtube.com/donar',
+  tiktok: 'https://tiktok.com/donar',
+  github: 'https://github.com/donar',
+  discord: 'https://discord.com/donar',
+  slack: 'https://slack.com/donar',
+  donationFrequency: 'one-time',
+  donationAmount: "$400",
+  donationAmountOther: 'other',
+  donationMethod: 'cash',
+  donationMethodOther: 'other',
+  donationNotes: 'Thank you for your support!',
+  donorLiaison: 'Timmy Green Smitth',
+};
+
