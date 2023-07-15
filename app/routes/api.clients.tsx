@@ -1,6 +1,6 @@
 // api/clients.js
 
-import { json, LoaderFunction } from 'remix';
+import { json, LoaderFunction } from '@remix-run/node';
 import { Client, ClientCreationAttributes } from '../models/Clients.model';
 import { ClientAttributes } from '~/models/Clients.model';
 
