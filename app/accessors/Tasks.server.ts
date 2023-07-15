@@ -1,3 +1,4 @@
+import { TaskCreationAttributes } from '~/interfaces';
 import { Task } from '~/models/Tasks.model';
 
 export const getTasks = async (params: any): Promise<Task[]> => {
@@ -8,7 +9,7 @@ export const getTaskById = async (id: number): Promise<Task | null> => {
   return await Task.findByPk(id);
 };
 
-export const createTask = async (data: Task): Promise<Task> => {
+export const createTask = async (data: TaskCreationAttributes): Promise<Task> => {
   return await Task.create(data);
 };
 

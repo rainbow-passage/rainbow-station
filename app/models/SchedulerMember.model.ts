@@ -1,10 +1,10 @@
-import { Model, ForeignKey, Table } from 'sequelize-typescript';
+import { Model, ForeignKey, Table, Column, DataType } from 'sequelize-typescript';
 import { Scheduler } from '~/models/Schedulers.model';
 import { Volunteer } from '~/models/Volunteers.model';
 import { Employee } from '~/models/Employees.model';
 import { Client } from '~/models/Clients.model';
 import { Donor } from '~/models/Donors.model';
-import { SchedulerMemberAttributes, SchedulerMemberCreationAttributes } from './Interfaces';
+import { SchedulerMemberAttributes, SchedulerMemberCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'SchedulerVolunteers',
@@ -25,4 +25,21 @@ export class SchedulerMembers extends Model<SchedulerMemberAttributes, Scheduler
 
   @ForeignKey(() => Donor)
   donorId?: number;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: false,
+  })
+  createdAt!: Date;
+
+  @Column({
+    type: DataType.DATE,
+  })
+  updatedAt?: Date;
+
+  @Column({
+    type: DataType.DATE,
+  })
+  deletedAt?: Date;
+  
 }

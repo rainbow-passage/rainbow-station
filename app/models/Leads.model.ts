@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
-import type { LeadAttributes, LeadCreationAttributes } from './Interfaces';
+import type { LeadAttributes, LeadCreationAttributes } from '~/interfaces';
 
 @Table({
   timestamps: true,

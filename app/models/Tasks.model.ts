@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
-import type { TaskAttributes, TaskCreationAttributes } from './Interfaces';
+import type { TaskAttributes, TaskCreationAttributes } from '~/interfaces';
 
 @Table({
   timestamps: true,

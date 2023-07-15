@@ -5,7 +5,7 @@ import { Employee } from '~/models/Employees.model';
 import { Client } from '~/models/Clients.model';
 import { Donor } from '~/models/Donors.model';
 import { Property } from '~/models/Properties.model';
-import { EventMemberAttributes, EventMemberCreationAttributes } from './Interfaces';
+import { EventMemberAttributes, EventMemberCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'EventVolunteers',
@@ -23,7 +23,7 @@ export class EventMembers extends Model<EventMemberAttributes, EventMemberCreati
 
   @ForeignKey(() => Client)
   clientId?: number;
-  
+
   @ForeignKey(() => Donor)
   donorId?: number;
 

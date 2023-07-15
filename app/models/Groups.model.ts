@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
-import type { GroupAttributes, GroupCreationAttributes } from './Interfaces';
+import type { GroupAttributes, GroupCreationAttributes } from '~/interfaces';
 
 @Table({
   timestamps: true,

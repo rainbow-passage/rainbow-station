@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
-import type { EventAttributes, EventCreationAttributes } from './Interfaces';
+import type { EventAttributes, EventCreationAttributes } from '~/interfaces';
 
 @Table({
   timestamps: true,

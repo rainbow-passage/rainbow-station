@@ -1,3 +1,4 @@
+import { EventCreationAttributes } from "~/interfaces";
 import { Event } from "~/models/Events.model";}
 
 export const getEvents = async (params: any): Promise<Event[]> => {
@@ -8,7 +9,7 @@ export const getEventById = async (id: number): Promise<Event | null> => {
   return await Event.findByPk(id);
 };
 
-export const createEvent = async (data: Event): Promise<Event> => {
+export const createEvent = async (data: EventCreationAttributes): Promise<Event> => {
   return await Event.create(data);
 };
 

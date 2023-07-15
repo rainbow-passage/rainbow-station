@@ -4,7 +4,7 @@ import { Volunteer } from '~/models/Volunteers.model';
 import { Employee } from '~/models/Employees.model';
 import { Client } from '~/models/Clients.model';
 import { Donor } from '~/models/Donors.model';
-import { TaskMemberAttributes, TaskMemberCreationAttributes } from './Interfaces';
+import { TaskMemberAttributes, TaskMemberCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'TaskVolunteers',
@@ -22,7 +22,7 @@ export class TaskMembers extends Model<TaskMemberAttributes, TaskMemberCreationA
 
   @ForeignKey(() => Client)
   clientId?: number;
-  
+
   @ForeignKey(() => Donor)
   donorId?: number;
 }

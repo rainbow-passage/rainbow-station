@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
-import type { ScheduleAttributes, ScheduleCreationAttributes } from './Interfaces';
+import type { ScheduleAttributes, ScheduleCreationAttributes } from '~/interfaces';
 
 @Table({
   timestamps: true,

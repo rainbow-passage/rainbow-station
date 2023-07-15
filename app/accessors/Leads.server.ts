@@ -1,3 +1,4 @@
+import { LeadCreationAttributes } from "~/interfaces";
 import { Lead } from "~/models/Leads.model";}
 
 export const getLeads = async (params: any): Promise<Lead[]> => {
@@ -8,7 +9,7 @@ export const getLeadById = async (id: number): Promise<Lead | null> => {
   return await Lead.findByPk(id);
 };
 
-export const createLead = async (data: Lead): Promise<Lead> => {
+export const createLead = async (data: LeadCreationAttributes): Promise<Lead> => {
   return await Lead.create(data);
 };
 

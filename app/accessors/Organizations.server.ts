@@ -1,3 +1,4 @@
+import { OrganizationCreationAttributes } from '~/interfaces';
 import { Organization } from '~/models/Organizations.model';
 
 export const getOrganizations = async (params: any): Promise<Organization[]> => {
@@ -8,7 +9,7 @@ export const getOrganizationById = async (id: number): Promise<Organization | nu
   return await Organization.findByPk(id);
 };
 
-export const createOrganization = async (data: Organization): Promise<Organization> => {
+export const createOrganization = async (data: OrganizationCreationAttributes): Promise<Organization> => {
   return await Organization.create(data);
 };
 

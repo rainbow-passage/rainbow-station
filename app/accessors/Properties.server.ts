@@ -1,3 +1,4 @@
+import { PropertyCreationAttributes } from '~/interfaces';
 import { Property } from '~/models/Properties.model';
 
 export const getProperties = async (params: any): Promise<Property[]> => {
@@ -8,7 +9,7 @@ export const getPropertyById = async (id: number): Promise<Property | null> => {
   return await Property.findByPk(id);
 };
 
-export const createProperty = async (data: Property): Promise<Property> => {
+export const createProperty = async (data: PropertyCreationAttributes): Promise<Property> => {
   return await Property.create(data);
 };
 

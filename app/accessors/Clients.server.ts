@@ -1,4 +1,4 @@
-import { Client } from '~/models/Clients.model';
+import { Client, ClientCreationAttributes } from '~/models/Clients.model';
 
 export const getClients = async (params: any): Promise<Client[]> => {
   return await Client.findAll(params);
@@ -8,7 +8,7 @@ export const getClientById = async (id: number): Promise<Client | null> => {
   return await Client.findByPk(id);
 };
 
-export const createClient = async (data: Client): Promise<Client> => {
+export const createClient = async (data: ClientCreationAttributes): Promise<Client> => {
   return await Client.create(data);
 };
 

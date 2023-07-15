@@ -1,5 +1,5 @@
-import { Model, Table, Column, DataType, Index, IsUrl, IsUUID } from 'sequelize-typescript';
-import type { PersonAttributes, PersonCreationAttributes, ResourceAttributes, ResourceCreationAttributes, SocialAttributes, SocialCreationAttributes } from './Interfaces';
+import { Model, Table, Column, DataType, IsUrl, Index, Sequelize, IsEmail, IsNumeric, Length, IsDate, IsAlpha } from 'sequelize-typescript';
+import type { PersonAttributes, PersonCreationAttributes, ResourceAttributes, ResourceCreationAttributes, SocialAttributes, SocialCreationAttributes } from '~/interfaces';
 
 
 // write interfaces to extend the interfaces person, social, and resource interfaces
@@ -7,55 +7,216 @@ import type { PersonAttributes, PersonCreationAttributes, ResourceAttributes, Re
 export interface EmployeeAttributes extends PersonAttributes, SocialAttributes, ResourceAttributes { }
 export interface EmployeeCreationAttributes extends PersonCreationAttributes, SocialCreationAttributes, ResourceCreationAttributes { }
 
+const sequelize = new Sequelize({
+  dialect: 'mysql',
+  storage: `mysql://${process.env.DB_ROOT}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/clients`,
+  logging: true,
+})
+
 @Table({
   timestamps: true,
   tableName: 'Volunteers'
 })
 export class Employee extends Model<EmployeeAttributes, EmployeeCreationAttributes> implements EmployeeAttributes {
+
+  // FileRef
+  // PersonAttributes in Person.d.ts
+  
   @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
     primaryKey: true,
-    allowNull: false
+    allowNull: false,
   })
   id!: number;
 
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
+  @Length({ min: 2, max: 64 })
   pronouns!: string;
 
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   honorific!: string;
 
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   firstName!: string;
 
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   lastName!: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: true,
+  })
+  middleName?: string;
+
+  @IsEmail
+  @Index
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
   })
   email!: string;
 
+  @IsNumeric
+  @Index
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
+  phone!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  address!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  address2?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  city!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  state!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  @Length({ min: 5, max: 10 })
+  zip!: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  @Length({ min: 2, max: 56 })
   country!: string;
+
+  @IsDate
+  @Column({
+    type: DataType.DATE,
+    allowNull: false,
+  })
+  birthDate!: Date;
+
+  // FileRef
+  // SocialAttributes in Social.d.ts
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  website?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  facebook?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  twitter?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  instagram?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  linkedin?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  youtube?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  tiktok?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  github?: string;
+
+  @Index
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+    unique: true,
+  })
+  discord?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  twitch?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  medium?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  slack?: string;
+
+  // FileRef
+  // ResourceAttributes in Resource.d.ts
 
   @Column({
     type: DataType.STRING,
@@ -77,6 +238,12 @@ export class Employee extends Model<EmployeeAttributes, EmployeeCreationAttribut
 
   @Column({
     type: DataType.STRING,
+    allowNull: true
+  })
+  howToContactOther?: string;
+
+  @Column({
+    type: DataType.STRING,
     allowNull: false
   })
   workStatus!: string;
@@ -87,139 +254,47 @@ export class Employee extends Model<EmployeeAttributes, EmployeeCreationAttribut
   })
   contractTerm!: string;
 
+  @IsNumeric
   @Column({
     type: DataType.STRING,
     allowNull: false
   })
-  compensation!: string;
+  compensation!: number;
 
+  @IsNumeric
   @Column({
     type: DataType.STRING,
     allowNull: true
   })
-  middleName?: string;
+  compensationOther?: number;
 
+  @IsDate
   @Column({
-    type: DataType.STRING,
-    allowNull: true
+    type: DataType.DATE,
+    allowNull: false,
   })
-  phone?: string;
+  createdAt!: Date;
 
+  @IsDate
   @Column({
-    type: DataType.STRING,
-    allowNull: true
+    type: DataType.DATE,
+    allowNull: true,
   })
-  address?: string;
+  updatedAt?: Date;
 
+  @IsDate
   @Column({
-    type: DataType.STRING,
-    allowNull: true
+    type: DataType.DATE,
+    allowNull: true,
   })
-  address2?: string;
+  deletedAt?: Date;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  city?: string;
+  ////////////////////
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  state?: string;
+  sequelize: Sequelize;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  zip?: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  birthDate?: Date;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  website?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  facebook?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  twitter?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  instagram?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  linkedin?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  youtube?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  tiktok?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  github?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  discord?: string;
-
-  @IsUrl
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  slack?: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  howToContactOther?: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true
-  })
-  compensationOther?: string;
+  constructor() {
+    super();
+    this.sequelize = sequelize;
+  }
 }

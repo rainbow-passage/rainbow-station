@@ -1,3 +1,4 @@
+import { TeamCreationAttributes } from '~/interfaces';
 import { Team } from '~/models/Teams.model';
 
 export const getTeams = async (params: any): Promise<Team[]> => {
@@ -8,7 +9,7 @@ export const getTeamById = async (id: number): Promise<Team | null> => {
   return await Team.findByPk(id);
 };
 
-export const createTeam = async (data: Team): Promise<Team> => {
+export const createTeam = async (data: TeamCreationAttributes): Promise<Team> => {
   return await Team.create(data);
 };
 

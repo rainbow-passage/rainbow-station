@@ -1,5 +1,5 @@
 import { Model, Table, Column, DataType, Index, IsUUID } from 'sequelize-typescript';
-import { TeamAttributes, TeamCreationAttributes } from './Interfaces';
+import { TeamAttributes, TeamCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'Teams',

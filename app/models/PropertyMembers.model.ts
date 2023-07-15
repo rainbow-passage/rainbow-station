@@ -3,7 +3,7 @@ import { Property } from '~/models/Properties.model';
 import { Volunteer } from '~/models/Volunteers.model';
 import { Employee } from '~/models/Employees.model';
 import { Client } from '~/models/Clients.model';
-import { PropertyMemberAttributes, PropertyMemberCreationAttributes } from './Interfaces';
+import { PropertyMemberAttributes, PropertyMemberCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'PropertyVolunteers',

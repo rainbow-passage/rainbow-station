@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID } from 'sequelize-typescript';
-import type { OrganizationAttributes, OrganizationCreationAttributes } from './Interfaces';
+import type { OrganizationAttributes, OrganizationCreationAttributes } from '~/interfaces';
 
 @Table({
   timestamps: true,

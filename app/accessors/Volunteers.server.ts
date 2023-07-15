@@ -1,4 +1,4 @@
-import { Volunteer } from '~/models/Volunteers.model';
+import { Volunteer, VolunteerCreationAttributes } from '~/models/Volunteers.model';
 
 export const getVolunteers = async (params: any): Promise<Volunteer[]> => {
   return await Volunteer.findAll(params);
@@ -8,7 +8,7 @@ export const getVolunteerById = async (id: number): Promise<Volunteer | null> =>
   return await Volunteer.findByPk(id);
 };
 
-export const createVolunteer = async (data: Volunteer): Promise<Volunteer> => {
+export const createVolunteer = async (data: VolunteerCreationAttributes): Promise<Volunteer> => {
   return await Volunteer.create(data);
 };
 

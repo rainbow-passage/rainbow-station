@@ -9,9 +9,10 @@ export interface TaskAttributes {
   taskStatus: string;
   taskMembers?: string;
   taskFrequency?: string;
+  dueDate?: Date;
   createdAt: Date;
   updatedAt?: Date;
   deletedAt?: Date;
 }
 
-export interface TaskCreationAttributes extends Optional<TaskAttributes, "taskNotes" | "taskCoordinator" | "taskCoordinatorOther" | "taskMembers" | "taskFrequency" | "updatedAt" | "deletedAt"> { }
+export interface TaskCreationAttributes extends Optional<TaskAttributes, "taskNotes" | "taskCoordinator" | "taskCoordinatorOther" | "taskMembers" | "taskFrequency" | "dueDate" | "updatedAt" | "deletedAt"> { }

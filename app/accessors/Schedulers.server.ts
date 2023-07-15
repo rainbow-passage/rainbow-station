@@ -1,3 +1,4 @@
+import { ScheduleCreationAttributes } from '~/interfaces';
 import { Scheduler } from '~/models/Schedulers.model';
 
 export const getSchedulers = async (params: any): Promise<Scheduler[]> => {
@@ -8,7 +9,7 @@ export const getSchedulerById = async (id: number): Promise<Scheduler | null> =>
   return await Scheduler.findByPk(id);
 };
 
-export const createScheduler = async (data: Scheduler): Promise<Scheduler> => {
+export const createScheduler = async (data: ScheduleCreationAttributes): Promise<Scheduler> => {
   return await Scheduler.create(data);
 };
 

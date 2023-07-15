@@ -1,5 +1,5 @@
-import { Model, Table, Column, DataType, IsUrl, Index, IsUUID, Sequelize, IsEmail, IsNumeric, Length, IsDate, IsAlpha, IsIn } from 'sequelize-typescript';
-import type { PersonAttributes, PersonCreationAttributes, SocialAttributes, SocialCreationAttributes, PackageAttributes, PackageCreationAttributes } from './Interfaces';
+import { Model, Table, Column, DataType, IsUrl, Index, Sequelize, IsEmail, IsNumeric, Length, IsDate, IsAlpha } from 'sequelize-typescript';
+import type { PersonAttributes, PersonCreationAttributes, SocialAttributes, SocialCreationAttributes, PackageAttributes, PackageCreationAttributes } from '~/interfaces';
 
 // write the Client interfaces that extend the Person, Social, and Package interfaces
 
@@ -17,131 +17,194 @@ const sequelize = new Sequelize({
   tableName: 'Clients'
 })
 export class Client extends Model<ClientAttributes, ClientCreationAttributes> implements ClientAttributes {
+
+  // FileRef
+  // PersonAttributes in Person.d.ts
+  
   @Index
   @Column({
     type: DataType.INTEGER,
     autoIncrement: true,
     primaryKey: true,
-    allowNull: false
+    allowNull: false,
   })
   id!: number;
 
-  @is: /^[a-zA-Z]+\/[a-zA-Z]+$/
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   @Length({ min: 2, max: 64 })
   pronouns!: string;
 
-@IsAlpha
-
-  @IsIn(["De", "Dr", "Div", "Fr", "Fren", "Ind", "M", "M*", "Master", "Mr", "Miss", "Mir", "Miss", "Misc", "Mr", "Mre", "Mrs", "Ms", "Msr", "Mt", "Mm", "Mx", "Mv", "Myr", "Mys", "Mzr", "NB", "Pr", "Prof", "Ser", "Sir", "Sire", "Rev", "Sr", "Tir", "Vx", "Zr"])
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   honorific!: string;
 
-@is: /^[a-z][a-z '-.,]{0,746}$", "^$/i/
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   firstName!: string;
 
-  @is: /^[a-z][a-z '-.,]{0,746}$", "^$/i/
+  @IsAlpha
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   lastName!: string;
 
-@is: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)", "(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])", "(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  //? Add Index? (Lira)
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: true,
   })
+  middleName?: string;
+
   @IsEmail
+  @Index
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
   email!: string;
 
-@is: /^(?:\+1[-.\s])?(?:\(\d{3}\)", "\d{3})[-.\s]?\d{3}[-.\s]?\d{4}(?:\s*(?:x", "ext)\s*\d{1,6})?$/
-  //? Add Index? (Lira)
+  @IsNumeric
+  @Index
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
-  @IsNumeric
   phone!: string;
 
-@is: /\d{1,3}.?\d{0,3}\s[a-zA-Z]{2,30}\s[a-zA-Z]{2,15}/
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   address!: string;
 
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  address2?: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   city!: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   state!: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
-
-@is: /^\d{5}(-\d{4})?$/
-  @IsNumeric
   @Length({ min: 5, max: 10 })
   zip!: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   @Length({ min: 2, max: 56 })
   country!: string;
 
+  @IsDate
   @Column({
     type: DataType.DATE,
-    allowNull: false
+    allowNull: false,
   })
-  @IsDate
   birthDate!: Date;
+
+  // FileRef
+  // PackageAttributes in Package.d.ts
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: false,
   })
   packageNeeds!: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: false
+    allowNull: true,
+  })
+  packageTimeToReach?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  packageEmergencyContact?: string;
+
+  @IsNumeric
+  @Index
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  @Length({ min: 10, max: 18 })
+  packageEmergencyContactPhone?: string;
+
+  @IsEmail
+  @Index
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  packageEmergencyContactEmail?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  packageEmergencyContactRelationship?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  packageNotes?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
   })
   packageStatus!: string;
 
+  @IsDate
   @Column({
-    type: DataType.STRING,
-    allowNull: true
+    type: DataType.DATE,
+    allowNull: false,
   })
-  middleName?: string;
+  createdAt!: Date;
 
+  @IsDate
   @Column({
-    type: DataType.STRING,
-    allowNull: true
+    type: DataType.DATE,
+    allowNull: true,
   })
-  address2?: string;
+  updatedAt?: Date;
+
+  @IsDate
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  deletedAt?: Date;
+
+  // FileRef
+  // SocialAttributes in Social.d.ts
 
   @IsUrl
   @Column({
@@ -199,7 +262,6 @@ export class Client extends Model<ClientAttributes, ClientCreationAttributes> im
   })
   github?: string;
 
-  //? Add validation for Discord handles?
   @Index
   @Column({
     type: DataType.STRING,
@@ -213,48 +275,23 @@ export class Client extends Model<ClientAttributes, ClientCreationAttributes> im
     type: DataType.STRING,
     allowNull: true,
   })
+  twitch?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  medium?: string;
+
+  @IsUrl
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
   slack?: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  packageTimeToReach?: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  packageEmergencyContact?: string;
-
-  //? Add Index? (Lira)
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  @IsNumeric
-  @Length({ min: 10, max: 18 })
-  packageEmergencyContactPhone?: string;
-
-  //? Add Index? (Lira)
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  @IsEmail
-  packageEmergencyContactEmail?: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  packageEmergencyContactRelationship?: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  packageNotes?: string;
+  ////////////////////
 
   sequelize: Sequelize;
 
@@ -263,4 +300,3 @@ export class Client extends Model<ClientAttributes, ClientCreationAttributes> im
     this.sequelize = sequelize;
   }
 }
-

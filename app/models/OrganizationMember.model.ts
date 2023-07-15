@@ -3,7 +3,7 @@ import { Organization } from '~/models/Organizations.model';
 import { Volunteer } from '~/models/Volunteers.model';
 import { Employee } from '~/models/Employees.model';
 import { Client } from '~/models/Clients.model';
-import { OrganizationMemberAttributes, OrganizationMemberCreationAttributes } from './Interfaces';
+import { OrganizationMemberAttributes, OrganizationMemberCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'OrganizationVolunteers',

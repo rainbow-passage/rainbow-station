@@ -1,5 +1,5 @@
 import { Model, Column, Table, DataType, Index, IsUUID, Length, NotContains, IsEmail, IsUrl } from 'sequelize-typescript';
-import type { UserAttributes, UserCreationAttributes } from './Interfaces';
+import type { UserAttributes, UserCreationAttributes } from '~/interfaces';
 
 @Table({
   tableName: 'Users',
@@ -8,7 +8,7 @@ export default class Users extends Model<UserAttributes, UserCreationAttributes>
   @Column(DataType.INTEGER)
   id!: number;
 
-  @Index 
+  @Index
   @Column({
     type: DataType.STRING,
     allowNull: false,
