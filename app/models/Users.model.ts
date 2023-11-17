@@ -16,8 +16,6 @@ export default class Users extends Model<UserAttributes, UserCreationAttributes>
   })
   username!: string;
 
-  @Length({ min: 8, max: 255 })
-  @NotContains('password')
   @Column({
     type: DataType.STRING,
     allowNull: false,
